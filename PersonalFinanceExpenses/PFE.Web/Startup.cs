@@ -44,7 +44,7 @@ namespace PFE.Web
             var migrationAssemblyName = typeof(Startup).Assembly.FullName;
 
             builder.RegisterModule(new FrameworkModule(connectionString, migrationAssemblyName));
-          //  builder.RegisterModule(new WebModule(connectionString, migrationAssemblyName));
+            builder.RegisterModule(new WebModule(connectionString, migrationAssemblyName));
         }
 
         // This method gets called by the runtime. Use this method to add services to the container.
