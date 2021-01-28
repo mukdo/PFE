@@ -1,11 +1,12 @@
 ﻿using Autofac;
 using PFE.Data;
-using PFE.Framework.Categories;
 using PFE.membership.Contexts;
 using PFE.membership.Data;
 using PFE.membership.Services;
 using Microsoft.AspNetCore.Mvc.ModelBinding.Binders;
 using System;
+using PFE.Framework.Repository;
+using PFE.Framework.Service;
 
 namespace PFE.Framework
 {
@@ -35,11 +36,19 @@ namespace PFE.Framework
             builder.RegisterType<BlogUnitOfWork>().As<IBlogUnitOfWork>()
                 .InstancePerLifetimeScope();
 
+            #region Repository
             builder.RegisterType<CategoryRepository>().As<ICategoryRepository>()
                 .InstancePerLifetimeScope();
+            builder.RegisterType <ItemCategoryRepository>().As<IItemCategoryRepository>()
+                .InstancePerLifetimeScope();
+            #endregion
 
+            #region Service
             builder.RegisterType<CategoryService>().As<ICategoryService>()
                 .InstancePerLifetimeScope();
+            builder.RegisterType<ItemCategoryService>().As<IItemCategoryService>()
+               .InstancePerLifetimeScope();
+            #endregion
 
             builder.RegisterType<AccountSeed>()
                 .InstancePerLifetimeScope();

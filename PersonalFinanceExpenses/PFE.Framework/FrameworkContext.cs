@@ -1,5 +1,5 @@
-﻿using PFE.Framework.Categories;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
+using PFE.Framework.Entity;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -37,6 +37,7 @@ namespace PFE.Framework
         }
 
         public DbSet<Category> Categories { get; set; }
+        public DbSet<ItemCategory> ItemCategories { get; set; }
 
     }
 }
