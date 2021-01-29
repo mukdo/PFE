@@ -17,7 +17,7 @@ namespace PFE.Web.Areas.Admin.Models.Categories
                                     dataTables.PageIndex,
                                     dataTables.PageSize,
                                     dataTables.SearchText,
-                                    dataTables.GetSortText(new string[] { "Id", "Name" }));
+                                    dataTables.GetSortText(new string[] {"Name" }));
             return new
             {
                 recordsTotal = data.total,

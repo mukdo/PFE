@@ -14,6 +14,7 @@ using PFE.membership.Contexts;
 using PFE.membership.Data;
 using PFE.membership.Entities;
 using PFE.membership.Services;
+using PFE.Web.Data;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -56,6 +57,10 @@ namespace PFE.Web
 
             services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseSqlServer(connectionString, b => b.MigrationsAssembly(migrationAssemblyName)));
+
+            services.AddDbContext<AppDbConText>(options =>
+              options.UseSqlServer(
+                  Configuration.GetConnectionString("DefaultConnection")));
 
             services.AddDbContext<FrameworkContext>(options =>
                options.UseSqlServer(connectionString, b => b.MigrationsAssembly(migrationAssemblyName)));

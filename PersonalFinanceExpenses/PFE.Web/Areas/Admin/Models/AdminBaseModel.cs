@@ -53,26 +53,6 @@ namespace PFE.Web.Areas.Admin.Models
                 {
                     new MenuItem
                     {
-                        Title = "Register Admin",
-                        Childs = new List<MenuChildItem>
-                        {
-                            new MenuChildItem{ Title = "Create Admin", Url = "/Identities/Register/Registration" }
-
-                        }
-
-                    },
-                    new MenuItem
-                    {
-                        Title = "View Comment",
-                        Childs = new List<MenuChildItem>
-                        {
-                            new MenuChildItem{ Title = "Comment", Url = "/Admin/Comment" }
-
-                        }
-
-                    },
-                    new MenuItem
-                    {
                         Title = "Category",
                         Childs = new List<MenuChildItem>
                         {
@@ -82,18 +62,39 @@ namespace PFE.Web.Areas.Admin.Models
                         }
 
                     },
-                    new MenuItem
+                      new MenuItem
                     {
-                        Title = "Blog Compose",
+                        Title = "Item Category",
                         Childs = new List<MenuChildItem>
                         {
-                            new MenuChildItem{ Title = "View Post", Url = "/Admin/BlogCompose" },
-                            new MenuChildItem{ Title = "Add Post", Url ="/Admin/BlogCompose/CreatePost"}
+                            new MenuChildItem{ Title = "View Item Category", Url = "/Admin/ItemCategory" },
+                            new MenuChildItem{ Title = "Add Item Category", Url ="/Admin/ItemCategory/CreateCategory"}
 
                         }
 
                     },
+                    new MenuItem
+                    {
+                        Title = "Budget",
+                        Childs = new List<MenuChildItem>
+                        {
+                            new MenuChildItem{ Title = "View Budget", Url = "/Admin/Budget" },
+                            new MenuChildItem{ Title = "Add Post", Url ="/Admin/Budget/CreateBudget"}
 
+                        }
+
+                    },
+                        new MenuItem
+                    {
+                        Title = "Expenses",
+                        Childs = new List<MenuChildItem>
+                        {
+                            new MenuChildItem{ Title = "View Expenses", Url = "/Admin/Expenses" },
+                            new MenuChildItem{ Title = "Add Post", Url ="/Admin/Expenses/CreateBudget"}
+
+                        }
+
+                    },
                     new MenuItem
                     {
                         Title = "Setting",

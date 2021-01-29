@@ -1,4 +1,5 @@
 ﻿using PFE.Framework.Entity;
+using PFE.membership.Services;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -8,9 +9,11 @@ namespace PFE.Framework.Service
     {
         private IBlogUnitOfWork _blogUnitOfWork;
 
+
         public CategoryService(IBlogUnitOfWork blogUnitOfWork)
         {
             _blogUnitOfWork = blogUnitOfWork;
+         
         }
         public void CreateCategory(Category category)
         {
@@ -53,8 +56,7 @@ namespace PFE.Framework.Service
         public (IList<Category> categories, int total, int totalDisplay) GetCategories(int pageindex, int Pagesize, string searchText, string sortText)
         {
             var result = _blogUnitOfWork.CategoryRepository.GetAll().ToList();
-            int count = result.Count();
-            return (result,count, 5);
+            return (result,0, 0);
         }
 
         public Category GetCategory(int Id)

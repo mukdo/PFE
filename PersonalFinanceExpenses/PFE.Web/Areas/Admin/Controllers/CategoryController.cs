@@ -41,7 +41,7 @@ namespace PFE.Web.Areas.Admin.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult CreateCategory([Bind(nameof(CreateCategoryModel.Name))] 
+        public IActionResult CreateCategory([Bind(nameof(CreateCategoryModel.Name))]
         CreateCategoryModel model )
             
         {

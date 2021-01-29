@@ -10,5 +10,7 @@ namespace PFE.Framework
     {
         ICategoryRepository CategoryRepository { get; set; }
         IItemCategoryRepository ItemCategoryRepository { get; set; }
+        IBudgetRepository BudgetRepository { get; set; }
+        IExpensesRepository ExpensesRepository { get; set; }
     }
 }

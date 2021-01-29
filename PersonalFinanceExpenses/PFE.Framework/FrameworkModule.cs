@@ -33,20 +33,33 @@ namespace PFE.Framework
                 .WithParameter("migrationAssemblyName", _migrationAssemblyName)
                 .InstancePerLifetimeScope();
 
+            //builder.RegisterType<NewDbContext>()
+            //    .WithParameter("connectionString", _connectionString)
+            //    .InstancePerLifetimeScope();
+
             builder.RegisterType<BlogUnitOfWork>().As<IBlogUnitOfWork>()
                 .InstancePerLifetimeScope();
 
             #region Repository
             builder.RegisterType<CategoryRepository>().As<ICategoryRepository>()
                 .InstancePerLifetimeScope();
-            builder.RegisterType <ItemCategoryRepository>().As<IItemCategoryRepository>()
+            builder.RegisterType<ItemCategoryRepository>().As<IItemCategoryRepository>()
                 .InstancePerLifetimeScope();
+            builder.RegisterType<BudgetRepository>().As<IBudgetRepository>()
+                .InstancePerLifetimeScope();
+            builder.RegisterType<ExpensesRepository>().As<IExpensesRepository>()
+                .InstancePerLifetimeScope();
+
             #endregion
 
             #region Service
             builder.RegisterType<CategoryService>().As<ICategoryService>()
                 .InstancePerLifetimeScope();
             builder.RegisterType<ItemCategoryService>().As<IItemCategoryService>()
+               .InstancePerLifetimeScope();
+            builder.RegisterType<BudgetService>().As<IBudgetService>()
+               .InstancePerLifetimeScope();
+            builder.RegisterType<ExpensesService>().As<IExpensesService>()
                .InstancePerLifetimeScope();
             #endregion
 

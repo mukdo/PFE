@@ -38,6 +38,8 @@ namespace PFE.Framework
 
         public DbSet<Category> Categories { get; set; }
         public DbSet<ItemCategory> ItemCategories { get; set; }
+        public DbSet<Budget> Budgets { get; set; }
+        public DbSet<Expenses> Expenses { get; set; }
 
     }
 }
