@@ -984,17 +984,17 @@
 
   /**
    * --------------------------------------------
-   * AdminLTE TodoList.js
+   * AdminLTE PFE.js
    * License MIT
    * --------------------------------------------
    */
-  var TodoList = function ($) {
+  var PFE = function ($) {
     /**
      * Constants
      * ====================================================
      */
-    var NAME = 'TodoList';
-    var DATA_KEY = 'lte.todolist';
+    var NAME = 'PFE';
+    var DATA_KEY = 'lte.PFE';
     var JQUERY_NO_CONFLICT = $.fn[NAME];
     var Selector = {
       DATA_TOGGLE: '[data-widget="todo-list"]'
@@ -1015,10 +1015,10 @@
      * ====================================================
      */
 
-    var TodoList =
+    var PFE =
     /*#__PURE__*/
     function () {
-      function TodoList(element, config) {
+      function PFE(element, config) {
         this._config = config;
         this._element = element;
 
@@ -1026,7 +1026,7 @@
       } // Public
 
 
-      var _proto = TodoList.prototype;
+      var _proto = PFE.prototype;
 
       _proto.toggle = function toggle(item) {
         item.parents('li').toggleClass(ClassName.TODO_LIST_DONE);
@@ -1057,14 +1057,14 @@
       } // Static
       ;
 
-      TodoList._jQueryInterface = function _jQueryInterface(config) {
+      PFE._jQueryInterface = function _jQueryInterface(config) {
         return this.each(function () {
           var data = $(this).data(DATA_KEY);
 
           var _options = $.extend({}, Default, $(this).data());
 
           if (!data) {
-            data = new TodoList($(this), _options);
+            data = new PFE($(this), _options);
             $(this).data(DATA_KEY, data);
           }
 
@@ -1074,7 +1074,7 @@
         });
       };
 
-      return TodoList;
+      return PFE;
     }();
     /**
      * Data API
@@ -1083,22 +1083,22 @@
 
 
     $(window).on('load', function () {
-      TodoList._jQueryInterface.call($(Selector.DATA_TOGGLE));
+      PFE._jQueryInterface.call($(Selector.DATA_TOGGLE));
     });
     /**
      * jQuery API
      * ====================================================
      */
 
-    $.fn[NAME] = TodoList._jQueryInterface;
-    $.fn[NAME].Constructor = TodoList;
+    $.fn[NAME] = PFE._jQueryInterface;
+    $.fn[NAME].Constructor = PFE;
 
     $.fn[NAME].noConflict = function () {
       $.fn[NAME] = JQUERY_NO_CONFLICT;
-      return TodoList._jQueryInterface;
+      return PFE._jQueryInterface;
     };
 
-    return TodoList;
+    return PFE;
   }(jQuery);
 
   /**
@@ -1830,7 +1830,7 @@
   exports.Layout = Layout;
   exports.PushMenu = PushMenu;
   exports.Toasts = Toasts;
-  exports.TodoList = TodoList;
+  exports.PFE = PFE;
   exports.Treeview = Treeview;
 
   Object.defineProperty(exports, '__esModule', { value: true });

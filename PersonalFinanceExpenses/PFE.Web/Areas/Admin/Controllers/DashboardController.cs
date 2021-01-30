@@ -11,25 +11,28 @@ using PFE.membership.Entities;
 using Microsoft.AspNetCore.Identity;
 using PFE.membership.Contexts;
 using System.Security.Claims;
+using PFE.Web.Data;
 
 namespace PFE.Web.Areas.Admin.Controllers
 {
     [Area("Admin")]
-   // [Authorize(Roles = "SuperAdmin,Administrator")]
+    [Authorize]
     public class DashboardController : Controller
     {
         private readonly UserManager<ApplicationUser> _userManager;
         private readonly ILogger<ApplicationUser> _logger;
         private readonly ApplicationDbContext _db;
         private readonly FrameworkContext _frameworkContext;
+        private readonly AppDbConText _appContext;
 
         public DashboardController(UserManager<ApplicationUser> userManager, ILogger<ApplicationUser> logger,
-                                   ApplicationDbContext db, FrameworkContext frameworkContext)
+                                   ApplicationDbContext db, FrameworkContext frameworkContext, AppDbConText appDbConText)
         {
             _userManager = userManager;
             _logger = logger;
             _db = db;
             _frameworkContext = frameworkContext;
+            _appContext = appDbConText;
         }
         //public IActionResult Index()
         //{
@@ -45,15 +48,17 @@ namespace PFE.Web.Areas.Admin.Controllers
         {
             var currentUserId = User.FindFirstValue(ClaimTypes.NameIdentifier); // will give the user's userId
             var model = new DashBoardModel();
-            var budget = _frameworkContext.Budgets.Where(b => b.UserId == currentUserId).Sum( s => s.Amount);
-            var expenses = _frameworkContext.Expenses.Where(e => e.UserId == currentUserId && e.Date.Month == DateTime.Now.Month).Sum( s => s.Amount);
+            var budget = _frameworkContext.Budgets.Where(b => b.UserId == currentUserId).Sum(s => s.Amount);
+            var expenses = _frameworkContext.Expenses.Where(e => e.UserId == currentUserId && e.Date.Month == DateTime.Now.Month).Sum(s => s.Amount);
+            var emargenytask = _appContext.Tasks.Count(x => x.Time.Day < 7 && x.UserId == currentUserId);
             int remainingAmount = budget - expenses;
             ViewBag.totalBudget = budget;
             ViewBag.totalExpenses = expenses;
+            ViewBag.emargency = emargenytask;
             ViewBag.remain = remainingAmount;
 
             return View(model);
 
         }
     }
-} 
+}

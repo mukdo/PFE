@@ -14,7 +14,7 @@ using PFE.Framework;
 namespace PFE.Web.Areas.Admin.Controllers
 {
     [Area("Admin")]
-    //[Authorize(Roles = "SuperAdmin,Administrator")]
+    [Authorize]
     public class CategoryController : Controller
     {
         private readonly IConfiguration _configuration;

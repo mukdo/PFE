@@ -95,6 +95,18 @@ namespace PFE.Web.Areas.Admin.Models
                         }
 
                     },
+
+                         new MenuItem
+                    {
+                        Title = "Report",
+                        Childs = new List<MenuChildItem>
+                        {
+                            new MenuChildItem{ Title = "View Report", Url = "/GenarateRepot" },
+                            
+
+                        }
+
+                    },
                     new MenuItem
                     {
                         Title = "Setting",
