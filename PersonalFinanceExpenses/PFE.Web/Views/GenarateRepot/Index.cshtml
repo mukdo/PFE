@@ -1,0 +1,75 @@
+﻿@{
+    ViewBag.Title = "Report";
+}
+<h1>Report of Your Budget</h1>
+<p> Reporting Month: @DateTime.Now.Month , @DateTime.Now.Year</p>
+<hr />
+<h2> Dear, @ViewBag.name</h2>
+<br />
+<div class="card col-10">
+    <div>
+        <h2>Your Budget Table</h2>
+        <hr />
+        <table class="box box-shadow col-10">
+
+            <tr>
+                <td><b>Budget Name</b></td>
+                <td><b>Amount</b></td>
+            </tr>
+
+            @foreach (var item in ViewBag.budget)
+            {
+                <tr>
+                    <td>@item.Title</td>
+                    <td>@item.Amount</td>
+                </tr>
+            }
+
+            <tr class="box fa-bold">
+                <td><b>Total Budget : </b></td>
+                <td><b> @ViewBag.totalBudget </b></td>
+            </tr>
+
+        </table>
+
+        <img class="col-10" src="~/admin/img/asd.png" height="40" width="700" />
+
+
+    </div>
+
+    <div>
+        <h2>Your Expenses Table</h2>
+        <hr />
+        <table class="box box-shadow col-10">
+
+            <tr>
+                <td><b>Amount</b></td>
+                <td><b>Date</b></td>
+            </tr>
+
+            @foreach (var item in ViewBag.expenses)
+            {
+                <tr>
+                    <td>@item.Amount</td>
+                    <td>@item.Date</td>
+                </tr>
+            }
+            <tr class="box fa-bold">
+                <td><b>Total Expenses </b></td>
+                <td> <b> @ViewBag.totalExpenses </b></td>
+            </tr>
+
+        </table>
+
+        <img class="col-10" src="~/admin/img/asd.png" height="40" width="700" />
+
+
+    </div>
+    <h2> Your Remaining Amount : @ViewBag.remain</h2>
+
+    <hr />
+    <hr />
+    <center> Thank you for Supporting Me</center>
+</div>
+
+<p class="text-light bg-primary btn col-3" onclick="window.print()">Print</p>

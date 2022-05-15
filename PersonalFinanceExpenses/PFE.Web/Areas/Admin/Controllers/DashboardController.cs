@@ -49,11 +49,12 @@ namespace PFE.Web.Areas.Admin.Controllers
             var currentUserId = User.FindFirstValue(ClaimTypes.NameIdentifier); // will give the user's userId
             var model = new DashBoardModel();
             var budget = _frameworkContext.Budgets.Where(b => b.UserId == currentUserId).Sum(s => s.Amount);
-            var expenses = _frameworkContext.Expenses.Where(e => e.UserId == currentUserId && e.Date.Month == DateTime.Now.Month).Sum(s => s.Amount);
+            var expenses = _frameworkContext.Expenses.Where(e => e.UserId == currentUserId).Sum(s => s.Amount);
             var emargenytask = _appContext.Tasks.Count(x => x.Time.Day < 7 && x.UserId == currentUserId);
+            ViewBag.totalExpenses = expenses;
             int remainingAmount = budget - expenses;
             ViewBag.totalBudget = budget;
-            ViewBag.totalExpenses = expenses;
+           
             ViewBag.emargency = emargenytask;
             ViewBag.remain = remainingAmount;
 
